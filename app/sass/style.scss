@@ -1,0 +1,37 @@
+//Bu Sass Dosyası Emrah KAHRAMAN tarafından kodlanmıştır.
+
+@import "/dist/font/stylesheet.css";
+
+//Variable
+@import "variable/_grid";
+@import "variable/_variable";
+@import "variable/_mixins";
+
+//Partials
+@import "partials/_header";
+@import "partials/_home";
+@import "partials/_footer";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bg-color;
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Cera Pro Light";
+    color: $base-color;
+}
+
+//Align-İtems
+.align-items {
+    @include flex();
+    @include align-items(center);
+}
+
+//Owl-Carousel
+.owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item{
+    -ms-touch-action: auto;
+    touch-action: auto;
+}

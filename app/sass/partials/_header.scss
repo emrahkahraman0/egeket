@@ -1,0 +1,337 @@
+/////HEADER
+
+
+//Header#
+#header {
+  width: 100%;
+  position: fixed;
+  top: 40px;
+  z-index: 2;
+  //header-wrapper
+  .header-wrapper {
+    @include flex();
+    @include justify-content(space-around);
+    @include align-items(center);
+    position: relative;
+    //logo
+    .logo {
+      position: relative;
+      z-index: 3;
+      img {
+        cursor: pointer;
+      }
+    }
+    //menu
+    .menu {
+      >li {
+        display: inline-block;
+        position: relative;
+        margin-right: 30px;
+        &:last-child {
+          margin-right: 0;
+        }
+        >a {
+          color: $secondary-color;
+          @include weight(bold);
+          font-size: 16px;
+          text-transform: uppercase;
+          position: relative;
+          &::before {
+            position: absolute;
+            width: 0;
+            margin: -4px 0;
+            @include transition(0.4s);
+            content: "";
+            background-color: $secondary-color;
+            height: 4px;
+            border-radius: 2px;
+            left: 0;
+            bottom: 0;
+          }
+          &:hover {
+            color: $secondary-color;
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+        ul {
+          width: 200px;
+          position: absolute;
+          top: 34px;
+          left: 0;
+          z-index: 1;
+          padding: 15px 0 15px 10px;
+          background-color: $three-color;
+          opacity: 0;
+          visibility: hidden;
+          @include transition(0.4s);
+          li {
+            display: block;
+            padding-bottom: 15px;
+            &:last-child {
+              padding-bottom: 0;
+            }
+            a {
+              color: $base-color;
+              @include weight(bold);
+              font-size: $size;
+              text-transform: uppercase;
+              position: relative;
+              &::before {
+                position: absolute;
+                width: 0;
+                margin: -3px 0;
+                @include transition(0.4s);
+                content: "";
+                background-color: $secondary-color;
+                height: 3px;
+                border-radius: 2px;
+                left: 0;
+                bottom: 0;
+              }
+              &:hover {
+                color: $secondary-color;
+                &::before {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+        &:hover {
+          ul {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        .active {
+          position: relative;
+          &::before {
+            position: absolute;
+            width: 0;
+            margin: -5px 0;
+            @include transition(0.4s);
+            content: "";
+            background-color: $secondary-color;
+            height: 4px;
+            border-radius: 2px;
+            left: 0;
+            bottom: 0;
+          }
+        }
+        .active, a.active {
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+    //hamburger
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 65px;
+      right: 10px;
+      cursor: pointer;
+      z-index: 999;
+      i {
+        color: $base-color;
+        font-size: 30px;
+        cursor: pointer;
+        @include transition(0.4s);
+      }
+    }
+    //Notebook
+    @include notebook {
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $bg-color;
+        z-index: 2;
+        text-align: center;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include scale(0);
+        opacity: 0;
+        transition: opacity 650ms;
+        li {
+          display: block;
+          margin-right: 0;
+          padding-bottom: 30px;
+          &:last-child {
+            padding-bottom: 0;
+          }
+          a {
+            font-size: 16px;
+            @include weight(bold);
+            color: $secondary-color;
+            &::before {
+              background-color: $secondary-color;
+            }
+          }
+          ul {
+            width: 100%;
+            top: 30px;
+            padding: 15px 0;
+            li {
+              padding-bottom: 12px;
+              &:last-child {
+                padding-bottom: 0;
+              }
+              a {font-size: 12px; line-height: normal;}
+            }
+          }
+        }
+      }
+      .menu.open {
+        opacity: 1;
+        @include scale(1);
+      }
+      .hamburger {
+        display: block;
+        .fa-times {display: none;}
+        .fa-times.open {display: block;}
+        .fa-bars.open {display: none;}
+      }
+    }
+  }
+}
+
+#header.fixed {
+  top: 0;
+  @include box-shadow2(0px, 3px, 10px, 0px, rgba(0,0,0,0.36));
+  background-color: rgba(0, 0, 0, 0.5);
+  @include transition(0.3s);
+  .header-wrapper {
+    .hamburger {
+      top: 24px;
+      @include transition(0.3s);
+    }
+  }
+}
+
+
+//Home_Slider#
+#home_slider {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/img/home-slider-bg.png");
+  @include bg-size(cover);
+  background-position: center;
+  position: relative;
+  //home_slider
+  .home_slider {
+    position: relative;
+    //&_item
+    &_item {
+      width: 100%;
+      height: 100vh;
+      @include flex();
+      @include align-items(center);
+      @include justify-content(center);
+      //slider_text
+      .slider_text {
+        h6 {
+          color: $base-color;
+          font-size: 60px;
+          text-transform: uppercase;
+          line-height: normal;
+          letter-spacing: 1px;
+          @include weight(bold);
+          text-shadow: 2px 2px 8px $three-color;
+        }
+        p {
+          padding-top: 20px;
+          font-size: 20px;
+          @include weight(medium);
+          text-transform: capitalize;
+          color: $base-color;
+          line-height: normal;
+          letter-spacing: 0.3px;
+        }
+      }
+      //slider_image
+      .slider_image {
+        padding-top: 250px;
+        img {width: 100%}
+      }
+      //Notebook
+      @include notebook {
+        padding-top: 150px;
+        @include flex;
+        @include flex-direction(column);
+        .slider_text {
+          h6 {font-size: 40px;}
+          p {font-size: 17px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+      //Tablet
+      @include tablet {
+        padding-top: 90px;
+        .slider_text {
+          h6 {font-size: 30px;}
+          p {font-size: 15px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+      //X-Tablet
+      @include x-tablet {
+        padding-top: 70px;
+        .slider_text {
+          h6 {font-size: 22px;}
+          p {font-size: $size; padding-top: 10px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+      //Mobil
+      @include mobil {
+        padding-top: 90px;
+        .slider_text {
+          h6 {font-size: 18px;}
+          p {font-size: 12px; padding-top: 15px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+    }
+    //owl-dots
+    .owl-dots {
+      margin-top: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      .owl-dot {
+        span {
+          width: 20px;
+          height: 20px;
+          background-color: $secondary-color;
+          @include transition(0.3s);
+        }
+      }
+      .active {
+        span {
+          border: 4px solid $base-color;
+        }
+      }
+      //Notebook
+      @include notebook {
+        bottom: 2%;
+        right: 0;
+      }
+      //Mobil
+      @include mobil {
+        .owl-dot {
+          span {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
