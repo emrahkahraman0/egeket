@@ -9,7 +9,7 @@ var lazyLoadInstance = new LazyLoad({
 $(function () {
     $('.hamburger').on('click', function () {
         $('.toggle').toggleClass('open');
-        $('.menu').toggleClass('open');
+        $('.mobile-nav').toggleClass('open');
     });
 });
 

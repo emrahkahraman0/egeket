@@ -27,6 +27,10 @@ $size: 14px;
         @content;
     }
   }
+
+  // Media Break Points Larger Screen
+  $notebook-md:"screen and(min-width: 992px)";
+
   //Tablet
   @mixin tablet() {
     @media only screen and (max-width: 768px) {

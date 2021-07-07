@@ -3,6 +3,22 @@
 
 //Header#
 #header {
+  .header-container{
+    width: 1600px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .mobile-nav{
+    width: 100%;
+    @include flex();
+    @include align-items(center);
+    
+  }
+  .menu2{
+    margin-left: auto;
+  }
+}
+#header {
   width: 100%;
   position: fixed;
   top: 40px;
@@ -10,48 +26,68 @@
   //header-wrapper
   .header-wrapper {
     @include flex();
-    @include justify-content(space-around);
     @include align-items(center);
     position: relative;
+    @include notebook{
+      padding-right: 60px;
+    }
+   
     //logo
     .logo {
-      position: relative;
-      z-index: 3;
+     @media #{$notebook-md}{
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      display: inline;
+      max-width: 250px;
+      text-align: center;
+  
+     }
       img {
         cursor: pointer;
+        margin: 0 auto;
+        width: 100%;
+      }
+      @media notebook {
+        position: relative;
       }
     }
     //menu
     .menu {
+      padding: 0 calc(15px + 1vw);
       >li {
         display: inline-block;
         position: relative;
-        margin-right: 30px;
+        padding: 0 10px;
+        // margin-right: 30px;
         &:last-child {
           margin-right: 0;
         }
         >a {
           color: $secondary-color;
           @include weight(bold);
-          font-size: 16px;
+          font-size: calc(12px + .6vw);
           text-transform: uppercase;
           position: relative;
+          padding: 30px calc(10px + .5vw);
           &::before {
             position: absolute;
             width: 0;
-            margin: -4px 0;
+            margin: -4px auto;
             @include transition(0.4s);
             content: "";
             background-color: $secondary-color;
             height: 4px;
             border-radius: 2px;
             left: 0;
+            right: 0;
             bottom: 0;
           }
           &:hover {
             color: $secondary-color;
             &::before {
-              width: 100%;
+              width: 60%;
             }
           }
         }
@@ -144,54 +180,7 @@
     }
     //Notebook
     @include notebook {
-      .menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: $bg-color;
-        z-index: 2;
-        text-align: center;
-        @include flex();
-        @include flex-direction(column);
-        @include justify-content(center);
-        @include scale(0);
-        opacity: 0;
-        transition: opacity 650ms;
-        li {
-          display: block;
-          margin-right: 0;
-          padding-bottom: 30px;
-          &:last-child {
-            padding-bottom: 0;
-          }
-          a {
-            font-size: 16px;
-            @include weight(bold);
-            color: $secondary-color;
-            &::before {
-              background-color: $secondary-color;
-            }
-          }
-          ul {
-            width: 100%;
-            top: 30px;
-            padding: 15px 0;
-            li {
-              padding-bottom: 12px;
-              &:last-child {
-                padding-bottom: 0;
-              }
-              a {font-size: 12px; line-height: normal;}
-            }
-          }
-        }
-      }
-      .menu.open {
-        opacity: 1;
-        @include scale(1);
-      }
+    
       .hamburger {
         display: block;
         .fa-times {display: none;}
@@ -200,138 +189,113 @@
       }
     }
   }
-}
-
-#header.fixed {
-  top: 0;
-  @include box-shadow2(0px, 3px, 10px, 0px, rgba(0,0,0,0.36));
-  background-color: rgba(0, 0, 0, 0.5);
-  @include transition(0.3s);
-  .header-wrapper {
-    .hamburger {
-      top: 24px;
-      @include transition(0.3s);
-    }
-  }
-}
-
-
-//Home_Slider#
-#home_slider {
-  width: 100%;
-  height: 100vh;
-  background-image: url("/img/home-slider-bg.png");
-  @include bg-size(cover);
-  background-position: center;
-  position: relative;
-  //home_slider
-  .home_slider {
-    position: relative;
-    //&_item
-    &_item {
+  @include notebook{
+    .mobile-nav{
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100vh;
-      @include flex();
-      @include align-items(center);
-      @include justify-content(center);
-      //slider_text
-      .slider_text {
-        h6 {
-          color: $base-color;
-          font-size: 60px;
-          text-transform: uppercase;
-          line-height: normal;
-          letter-spacing: 1px;
-          @include weight(bold);
-          text-shadow: 2px 2px 8px $three-color;
-        }
-        p {
-          padding-top: 20px;
-          font-size: 20px;
-          @include weight(medium);
-          text-transform: capitalize;
-          color: $base-color;
-          line-height: normal;
-          letter-spacing: 0.3px;
-        }
+      background-color: $primary-color;
+      @include flex;
+      @include flex-direction(column);
+      padding-top: calc(50px + 5vh);
+      &.open{
+        opacity: 1;
+        visibility: visible;
       }
-      //slider_image
-      .slider_image {
-        padding-top: 250px;
-        img {width: 100%}
+      .social {
+        order: 1;
       }
-      //Notebook
-      @include notebook {
-        padding-top: 150px;
-        @include flex;
-        @include flex-direction(column);
-        .slider_text {
-          h6 {font-size: 40px;}
-          p {font-size: 17px;}
-        }
-        .slider_image {padding-top: 30px;}
-      }
-      //Tablet
-      @include tablet {
-        padding-top: 90px;
-        .slider_text {
-          h6 {font-size: 30px;}
-          p {font-size: 15px;}
-        }
-        .slider_image {padding-top: 30px;}
-      }
-      //X-Tablet
-      @include x-tablet {
-        padding-top: 70px;
-        .slider_text {
-          h6 {font-size: 22px;}
-          p {font-size: $size; padding-top: 10px;}
-        }
-        .slider_image {padding-top: 30px;}
-      }
-      //Mobil
-      @include mobil {
-        padding-top: 90px;
-        .slider_text {
-          h6 {font-size: 18px;}
-          p {font-size: 12px; padding-top: 15px;}
-        }
-        .slider_image {padding-top: 30px;}
-      }
-    }
-    //owl-dots
-    .owl-dots {
-      margin-top: 0;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      .owl-dot {
-        span {
-          width: 20px;
-          height: 20px;
-          background-color: $secondary-color;
-          @include transition(0.3s);
-        }
-      }
-      .active {
-        span {
-          border: 4px solid $base-color;
-        }
-      }
-      //Notebook
-      @include notebook {
-        bottom: 2%;
-        right: 0;
-      }
-      //Mobil
-      @include mobil {
-        .owl-dot {
-          span {
-            width: 15px;
-            height: 15px;
+      .menu {
+        width: 100%;
+        li{
+          display: block;
+          text-align: center;
+          a{
+            width: 100%;
+            display: block;
           }
         }
       }
     }
   }
+}
+
+#header.fixed {
+  top: 10px;
+  @include box-shadow2(0px, 3px, 10px, 0px, rgba(0,0,0,0.36));
+  background-color: rgba(0, 0, 0, 0.5);
+  @include transition(0.3s);
+  .header-wrapper {
+    .hamburger {
+      top: 34px;
+      @include transition(0.3s);
+    }
+  }
+}
+
+ul.social{
+  @include flex();
+  @include align-items(center);
+  li{
+    padding: 0 3px;
+    a{
+      color: $secondary-color;
+      @include flex();
+      @include align-items(center);
+      width: 30px;
+      height: 30px;
+      @include justify-content(center);
+      @include box-shadow2(0,0,0,2px, rgba($secondary-color, .8));
+      @include border-radius(50%);
+    }
+  }
+}
+
+.order-btn{
+  background-color: $secondary-color;
+  color: #fff;
+  font-weight: 600;
+  padding: 20px 20px;
+  font-size: calc(12px + .6vw);
+  position: relative;
+  z-index: 10;
+  &::after{
+    position: absolute;
+    bottom: 100%;
+    height: 150px;
+    left: 0;
+    background-color: inherit;
+    content: "";
+    width: 100%;
+    z-index: -1;
+  }
+  &::before{
+    position: absolute;
+    bottom: -20px;
+    height: 50px;
+    left: 0;
+    background-color: inherit;
+    content: "";
+    width: 100%;
+    z-index: -1;
+    @include skewY(10deg);
+  }
+  @include notebook{
+    display: none !important; 
+  }
+}
+.order-btn-mobile{
+  @media #{$notebook-md}{
+    display: none;
+  }
+  margin-left: auto;
+  background-color: $secondary-color;
+  color: #fff;
+  padding: 20px 20px;
+  display: inline-block;
+  font-weight: bold;
 }

@@ -1,11 +1,134 @@
 /////HOME
 
+//Home_Slider#
+#home_slider {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/img/home-slider-bg.png");
+  @include bg-size(cover);
+  background-position: center;
+  position: relative;
+  //home_slider
+  .home_slider {
+    position: relative;
+    //&_item
+    &_item {
+      width: 100%;
+      height: 100vh;
+      @include flex();
+      @include align-items(center);
+      @include justify-content(center);
+      //slider_text
+      .slider_text {
+        h6 {
+          color: $base-color;
+          font-size: 60px;
+          text-transform: uppercase;
+          line-height: normal;
+          letter-spacing: 1px;
+          @include weight(bold);
+          text-shadow: 2px 2px 8px $three-color;
+        }
+        p {
+          padding-top: 20px;
+          font-size: 20px;
+          @include weight(medium);
+          text-transform: capitalize;
+          color: $base-color;
+          line-height: normal;
+          letter-spacing: 0.3px;
+        }
+      }
+      //slider_image
+      .slider_image {
+        padding-top: 250px;
+        img {width: 100%}
+      }
+      //Notebook
+      @include notebook {
+        padding-top: 150px;
+        @include flex;
+        @include flex-direction(column);
+        .slider_text {
+          h6 {font-size: 40px;}
+          p {font-size: 17px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+      //Tablet
+      @include tablet {
+        padding-top: 90px;
+        .slider_text {
+          h6 {font-size: 30px;}
+          p {font-size: 15px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+      //X-Tablet
+      @include x-tablet {
+        padding-top: 70px;
+        .slider_text {
+          h6 {font-size: 22px;}
+          p {font-size: $size; padding-top: 10px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+      //Mobil
+      @include mobil {
+        padding-top: 90px;
+        .slider_text {
+          h6 {font-size: 18px;}
+          p {font-size: 12px; padding-top: 15px;}
+        }
+        .slider_image {padding-top: 30px;}
+      }
+    }
+    //owl-dots
+    .owl-dots {
+      margin-top: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      .owl-dot {
+        span {
+          width: 20px;
+          height: 20px;
+          background-color: $secondary-color;
+          @include transition(0.3s);
+        }
+      }
+      .active {
+        span {
+          border: 4px solid $base-color;
+        }
+      }
+      //Notebook
+      @include notebook {
+        bottom: 2%;
+        right: 0;
+      }
+      //Mobil
+      @include mobil {
+        .owl-dot {
+          span {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
 //Home_İnfo#
 #home_info {
   width: 100%;
   padding: 100px 0 30px 0;
   //home_ifno
   .home_info {
+    width: 1600px;
+    max-width: 100%;
+    margin: 0 auto;
     //&_item
     &_item {
       .number {
@@ -75,48 +198,60 @@
   background-image: url("/img/home-statement-bg.png");
   @include bg-size(cover);
   background-position: center;
-  //statement-text
-  .statement-text {
-    img {width: 100%}
-    h6 {
-      color: $base-color;
-      font-size: 60px;
-      text-shadow: 8px 8px 10px $primary-color;
-      line-height: normal;
-      letter-spacing: 0.4px;
-      @include weight(black);
-    }
-    p {
-      padding-top: 20px;
-      max-width: 480px;
-      @include weight(medium);
-      color: $base-color;
-      letter-spacing: 0.5px;
-      font-size: 25px;
-      line-height: normal;
+  //statement_container
+  .statement_container {
+    width: 1600px;
+    max-width: 100%;
+    margin: 0 auto;
+    //statement-text
+    .statement-text {
+      img {width: 100%}
+      h6 {
+        color: $base-color;
+        font-size: 60px;
+        text-shadow: 8px 8px 10px $primary-color;
+        line-height: normal;
+        letter-spacing: 0.4px;
+        @include weight(black);
+      }
+      p {
+        padding-top: 20px;
+        max-width: 480px;
+        @include weight(medium);
+        color: $base-color;
+        letter-spacing: 0.5px;
+        font-size: 25px;
+        line-height: normal;
+      }
     }
   }
   //Notebook
   @include notebook {
     padding: 300px 0 50px 0;
-    .statement-text {
-      h6 {font-size: 40px; padding-top: 10px;}
-      p {font-size: 20px;}
+    .statement_container {
+      .statement-text {
+        h6 {font-size: 40px; padding-top: 10px;}
+        p {font-size: 20px;}
+      }
     }
   }
   //Tablet
   @include tablet {
     padding: 200px 0 50px 0;
-    .statement-text {
-      h6 {font-size: 25px; padding-top: 15px;}
-      p {font-size: 16px; padding-top: 15px;}
+    .statement_container {
+      .statement-text {
+        h6 {font-size: 25px; padding-top: 15px;}
+        p {font-size: 16px; padding-top: 15px;}
+      }
     }
   }
   //Mobil
   @include mobil {
-    .statement-text {
-      h6 {font-size: 18x; padding-top: 10px;}
-      p {font-size: 13px; padding-top: 12px;}
+    .statement_container {
+      .statement-text {
+        h6 {font-size: 18x; padding-top: 10px;}
+        p {font-size: 13px; padding-top: 12px;}
+      }
     }
   }
 }
