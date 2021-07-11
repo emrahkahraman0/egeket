@@ -44,3 +44,50 @@ $('.home_slider').owlCarousel({
         1000:{items:1}
     }
 });
+
+//About-Counter
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+
+//About-Team-Owl
+$('.about-team-owl').owlCarousel({
+    loop:true,
+    margin:15,
+    nav:false,
+    dots:true,
+    autoplay:false,
+    autoplayTimeout:1000,
+    autoplayHoverPause:false,
+    responsive:{
+        0:{
+            items:1
+        },
+        400:{
+            items:1
+        },
+        700:{
+            items:2
+        },
+        1000:{
+            items:3
+        },
+        1200:{
+            items:4
+        },
+        1400:{
+            items:4
+        },
+        1600:{
+            items:4
+        }
+    }
+});

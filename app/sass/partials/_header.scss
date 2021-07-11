@@ -42,7 +42,6 @@
       display: inline;
       max-width: 250px;
       text-align: center;
-  
      }
       img {
         cursor: pointer;
@@ -74,7 +73,7 @@
           &::before {
             position: absolute;
             width: 0;
-            margin: -4px auto;
+            margin: 10px auto;
             @include transition(0.4s);
             content: "";
             background-color: $secondary-color;
@@ -87,18 +86,18 @@
           &:hover {
             color: $secondary-color;
             &::before {
-              width: 60%;
+              width: 80%;
             }
           }
         }
         ul {
-          width: 200px;
+          width: 100%;
           position: absolute;
-          top: 34px;
+          top: 65px;
           left: 0;
           z-index: 1;
-          padding: 15px 0 15px 10px;
-          background-color: $three-color;
+          padding: 15px 0 15px 13px;
+          background-color: $secondary-color;
           opacity: 0;
           visibility: hidden;
           @include transition(0.4s);
@@ -120,14 +119,14 @@
                 margin: -3px 0;
                 @include transition(0.4s);
                 content: "";
-                background-color: $secondary-color;
+                background-color: $base-color;
                 height: 3px;
                 border-radius: 2px;
                 left: 0;
                 bottom: 0;
               }
               &:hover {
-                color: $secondary-color;
+                color: $base-color;
                 &::before {
                   width: 100%;
                 }
@@ -146,7 +145,7 @@
           &::before {
             position: absolute;
             width: 0;
-            margin: -5px 0;
+            margin: 10px 0;
             @include transition(0.4s);
             content: "";
             background-color: $secondary-color;
