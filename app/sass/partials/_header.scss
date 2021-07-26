@@ -18,6 +18,8 @@
     margin-left: auto;
   }
 }
+
+//Header
 #header {
   width: 100%;
   position: fixed;
@@ -40,12 +42,12 @@
       right: 0;
       margin: 0 auto;
       display: inline;
-      max-width: 250px;
+      max-width: 225px;
       text-align: center;
      }
       img {
         cursor: pointer;
-        margin: 0 auto;
+        margin: 0 0 0 30px;
         width: 100%;
       }
       @media notebook {
@@ -223,6 +225,7 @@
   }
 }
 
+//Header-Fixed
 #header.fixed {
   top: 10px;
   @include box-shadow2(0px, 3px, 10px, 0px, rgba(0,0,0,0.36));
@@ -236,7 +239,8 @@
   }
 }
 
-ul.social{
+//Social
+.social {
   @include flex();
   @include align-items(center);
   li{
@@ -254,47 +258,242 @@ ul.social{
   }
 }
 
-.order-btn{
-  background-color: $secondary-color;
-  color: #fff;
-  font-weight: 600;
-  padding: 20px 20px;
-  font-size: calc(12px + .6vw);
+//Order
+.order {
   position: relative;
-  z-index: 10;
-  &::after{
-    position: absolute;
-    bottom: 100%;
-    height: 150px;
-    left: 0;
-    background-color: inherit;
-    content: "";
-    width: 100%;
-    z-index: -1;
+  .order-btn{
+    cursor: pointer;
+    background-color: $secondary-color;
+    color: #fff;
+    font-weight: 600;
+    padding: 20px 20px;
+    font-size: calc(12px + .6vw);
+    position: relative;
+    z-index: 10;
+    &::after{
+      position: absolute;
+      bottom: 100%;
+      height: 150px;
+      left: 0;
+      background-color: inherit;
+      content: "";
+      width: 100%;
+      z-index: -1;
+    }
+    &::before{
+      position: absolute;
+      bottom: -20px;
+      height: 50px;
+      left: 0;
+      background-color: inherit;
+      content: "";
+      width: 100%;
+      z-index: -1;
+      @include skewY(10deg);
+    }
+    @include notebook{
+      display: none !important; 
+    }
   }
-  &::before{
-    position: absolute;
-    bottom: -20px;
-    height: 50px;
-    left: 0;
-    background-color: inherit;
-    content: "";
-    width: 100%;
-    z-index: -1;
-    @include skewY(10deg);
-  }
-  @include notebook{
-    display: none !important; 
+  //order-btn-mobile
+  .order-btn-mobile {
+    cursor: pointer;
+    @media #{$notebook-md}{
+      display: none;
+    }
+    margin-left: auto;
+    background-color: $secondary-color;
+    color: #fff;
+    padding: 20px 20px;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 25px;
   }
 }
-.order-btn-mobile{
-  @media #{$notebook-md}{
-    display: none;
+
+//Popup-Modal
+.trigger_open {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 19, 19, 0.54);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  .containerwe {
+      position: absolute;
+      max-width: 700px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 50px;
+      background-color: $base-color;
+      margin: 0 auto;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      .trigger_close {
+          position: absolute;
+          top: 0;
+          z-index: 1;
+          right: -60px;
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          text-align: center;
+          font-size: 40px;
+          background-color: $secondary-color;
+          @include box-shadow2(0px, 3px, 10px, 0px, rgba(0,0,0,0.36));
+          color: $base-color;
+          cursor: pointer;
+      }
+      .trigger_content {
+        @include flex;
+        @include justify-content(center);
+        @include align-items(center);
+        @include flex-direction(column);
+        height: 100%;
+        h5 {
+          text-transform: uppercase;
+          color: #333333;
+          font-size: 25px;
+          line-height: normal;
+          @include weight(bold);
+          margin-bottom: 25px;
+        }
+        form {
+          input {
+            width: 100%;
+            height: 40px;
+            padding-left: 20px;
+            border: 1px solid #dee1e3;
+            background-color: transparent;
+            margin-bottom: 15px;
+            color: #a3a6a9;
+            font-size: 16px;
+            @include weight(600);
+          }
+          select {
+            width: 100%;
+            height: 40px;
+            padding-left: 20px;
+            border: 1px solid #dee1e3;
+            background-color: transparent;
+            margin-bottom: 15px;
+            color: #a3a6a9 !important;
+            font-size: 16px;
+            @include weight(600);
+          }
+          textarea {
+            width: 100%;
+            padding: 10px 0 0 20px;
+            border: 1px solid #dee1e3;
+            background-color: transparent;
+            color: #a3a6a9;
+            font-size: 16px;
+            resize: none;
+            @include weight(600);
+            margin-bottom: 15px;
+          }
+          .file-control {
+            border: 0;
+            height: 30px;
+          }
+          button {
+            width: 100%;
+            height: 40px;
+            background-color: $secondary-color;
+            color: $base-color;
+            @include weight(600);
+            font-size: $size;
+            text-transform: uppercase;
+            cursor: pointer;
+          }
+        }
+      }
   }
-  margin-left: auto;
-  background-color: $secondary-color;
-  color: #fff;
-  padding: 20px 20px;
-  display: inline-block;
-  font-weight: bold;
+  //Notebook
+  @include notebook {
+      .containerwe {
+        max-width: 500px;
+        padding: 25px 40px;
+        .trigger_close {
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          right: 0px;
+          top: 20px;
+          font-size: 40px;
+        }
+      }
+  }
+  //Tablet
+  @include tablet {
+      .containerwe {
+        padding: 20px 35px;
+        .trigger_content {
+          h5 {
+            font-size: 18px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+  }
+  //X-Tablet
+  @include x-tablet {
+      .containerwe {
+        max-width: 500px;
+        padding: 35px 20px;
+        .trigger_close {
+          width: 35px;
+          height: 35px;
+          line-height: 35px;
+          font-size: 35px;
+          top: 15px;
+        }
+        .trigger_content {
+          h5 {font-size: 16px;}
+        }
+      }
+  }
+  //Mobil
+  @include mobil {
+      .containerwe {
+        max-width: 400px;
+        padding: 30px 20px;
+          .trigger_content {
+              h5 {
+                font-size: $size;
+              }
+              form {
+                input {font-size: $size;}
+                button {
+                  font-size: 12px;
+                }
+              }
+          }
+      }
+  }
+  //Small
+  @include small {
+      .containerwe {
+        padding: 30px 15px 30px 15px;
+      }
+  }
+  //X-Small
+  @include x-small {
+      .containerwe {
+        padding: 30px 10px 30px 10px;
+      }
+  }
+}
+.close_formen {
+  width: 100%;
+  height: 100vh;
+  background: rgba(19, 19, 19, 0.54);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
 }

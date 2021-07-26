@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="dist/css/reset.css">
     <link rel="stylesheet" href="dist/css/owl.carousel.min.css">
     <link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dist/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="dist/css/style.css">
 
@@ -43,25 +44,35 @@
 
                 <ul class="menu">
                     <li><a href="index.html">kurumsal</a></li>
-                    <li><a href="about.html">hizmetlerimiz</a></li>
+                    <li>
+                        <a href="about.html">hizmetlerimiz</a>
+                        <ul>
+                            <li><a href="#">Deneme-1</a></li>
+                            <li><a href="#">Deneme-1</a></li>
+                            <li><a href="#">Deneme-1</a></li>
+                            <li><a href="#">Deneme-1</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- menu -->
 
                 <ul class="menu menu2">
                     <li><a href="contact.html">üretim</a></li>
-                    <li><a href="index.html">portfolyo</a></li>
+                    <li><a href="portfolio.html">portfolyo</a></li>
                 </ul>
                 <!-- menu -->
 
-                <a href="#" class="order-btn">Sipariş Ver</a>
+                <div class="order">
+                    <button class="order-btn">Sipariş Ver</button>
+                    <button class="order-btn-mobile">Sipariş Ver</button>
+                </div>
+                <!-- order -->
 
             </div>
             <!-- mobile-nav -->
 
-            <a href="#" class="logo"><img src="img/logo.png" class="img-fluid" alt=""></a>
+            <a href="index.html" class="logo"><img src="img/logo.png" class="img-fluid" alt=""></a>
             <!-- logo -->
-           
-            <a href="#" class="order-btn-mobile">Sipariş Ver</a>
 
             <div class="hamburger">
                 <i class="fas fa-bars toggle"></i>
@@ -71,6 +82,36 @@
 
         </div>
         <!-- header-wrapper -->
+
+        <div class="trigger_open close_formen test">
+
+            <div class="containerwe">
+        
+            <div class="trigger_close">X</div>
+        
+            <div class="trigger_content">
+                <h5>baskı sipariş formu</h5>
+                <form>
+                    <input type="text" placeholder="Ad Soyad">
+                    <input type="tel" placeholder="Telefon">
+                    <input type="email" placeholder="Email">
+                    <select>
+                        <option value="services">Services</option>
+                        <option value="services">Services</option>
+                        <option value="services">Services</option>
+                    </select>
+                    <textarea rows="8" placeholder="Message"></textarea>
+                    <input class="file-control" type="file" accept=".pdf, .jpg, .png">
+                    <button type="submit">gönder</button>
+                </form>
+            </div>
+            <!-- trigger_content -->
+        
+            </div>
+            <!-- containerwe -->
+        
+        </div>
+        <!-- trigger_open -->
 
     </div>
     <!-- header-container -->
@@ -188,35 +229,51 @@
     <div class="home_gallery row">
 
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
         <div class="home_gallery_item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            <a href="img/home-gallery-1.png" data-lightbox="image-1">
+                <img src="img/home-gallery-1.png" class="img-fluid" alt="">
+            </a>
         </div>
         <!-- home_gallery_item -->
 
@@ -312,6 +369,7 @@
 <!-- Scripts -->
 <script src="dist/js/jquery-3.5.1.min.js"></script>
 <script src="dist/js/lazyload.min.js"></script>
+<script src="dist/js/lightbox.min.js"></script>
 <script src="dist/js/owl.carousel.min.js"></script>
 <script src="dist/js/style.js"></script>
 

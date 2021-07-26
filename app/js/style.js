@@ -1,39 +1,41 @@
 //JS
 
-//Lazy-Load
-var lazyLoadInstance = new LazyLoad({
+$(document).ready(function () {
+    
+    //Lazy-Load
+    var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazyload"
-});
+    });
 
-//Menu
-$(function () {
+    //Menu
+    $(function () {
     $('.hamburger').on('click', function () {
         $('.toggle').toggleClass('open');
         $('.mobile-nav').toggleClass('open');
     });
-});
+    });
 
-//Menu-Active
-jQuery(function($) {
+    //Menu-Active
+    jQuery(function($) {
     var path = window.location.href;
     $('ul li a').each(function() {
         if (this.href === path) {
             $(this).addClass('active');
         }
     });
-});
+    });
 
-//Menu-Scroll
-$(window).scroll(function() {
+    //Menu-Scroll
+    $(window).scroll(function() {
     if($(document).scrollTop() > 50) {
         $('#header').addClass('fixed');
     } else {
         $('#header').removeClass('fixed')
     }
-});
+    });
 
-//Home_Slider
-$('.home_slider').owlCarousel({
+    //Home_Slider
+    $('.home_slider').owlCarousel({
     loop:true,
     margin:0,
     nav:false,
@@ -43,10 +45,10 @@ $('.home_slider').owlCarousel({
         600:{items:1},
         1000:{items:1}
     }
-});
+    });
 
-//About-Counter
-$('.count').each(function () {
+    //About-Counter
+    $('.count').each(function () {
     $(this).prop('Counter',0).animate({
         Counter: $(this).text()
     }, {
@@ -56,10 +58,10 @@ $('.count').each(function () {
             $(this).text(Math.ceil(now));
         }
     });
-});
+    });
 
-//About-Team-Owl
-$('.about-team-owl').owlCarousel({
+    //About-Team-Owl
+    $('.about-team-owl').owlCarousel({
     loop:true,
     margin:15,
     nav:false,
@@ -90,4 +92,22 @@ $('.about-team-owl').owlCarousel({
             items:4
         }
     }
+    });
+
+    //Career-Popup
+    $(".trigger_open").hide();
+    $(".close_formen").hide();
+
+    $(".order-btn, .order-btn-mobile").click(function(){		
+        $(".trigger_open").toggle();
+        $(".containerwe").animate({top: '-10'}, 700);
+    });
+
+    $(".trigger_close").click(function(){	
+        $(".trigger_open").hide();
+    });
+
+    //Popup_Modal
+
+
 });

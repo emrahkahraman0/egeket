@@ -46,14 +46,17 @@
       }
       //Notebook
       @include notebook {
-        padding-top: 150px;
+        padding-top: 230px;
         @include flex;
         @include flex-direction(column);
         .slider_text {
           h6 {font-size: 40px;}
           p {font-size: 17px;}
         }
-        .slider_image {padding-top: 30px;}
+        .slider_image {
+          padding-top: 25px;
+          img {width: 75%;}
+        }
       }
       //Tablet
       @include tablet {
@@ -264,13 +267,17 @@
     .col {padding: 0}
     //&_item
     &_item {
-      img {
-        width: 100%;
-        filter: grayscale(100%);
-        @include transition(0.3s);
+      a {
+        img {
+          width: 100%;
+          filter: grayscale(100%);
+          @include transition(0.3s);
+        }
       }
       &:hover {
-        img {filter: grayscale(0)}
+        a {
+          img {filter: grayscale(0)}
+        }
       }
     }
   }
