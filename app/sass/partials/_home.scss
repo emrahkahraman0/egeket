@@ -4,7 +4,7 @@
 #home_slider {
   width: 100%;
   height: 100vh;
-  background-image: url("https://emrahinklavyesi.xyz/egeket/img/home-slider-bg.png");
+  background-image: url("../../img/home-slider-bg.png");
   @include bg-size(cover);
   background-position: center;
   position: relative;
@@ -198,7 +198,7 @@
 #home_statement {
   width: 100%;
   padding: 400px 0 50px 0;
-  background-image: url("https://emrahinklavyesi.xyz/egeket/img/home-statement-bg.png");
+  background-image: url("../../img/home-statement-bg.png");
   @include bg-size(cover);
   background-position: center;
   //statement_container
